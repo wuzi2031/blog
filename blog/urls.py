@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.conf.urls import include
+
 from sblog.views import *
+
 admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
