@@ -18,9 +18,16 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from sblog.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^sblog/', blog_list),
+    url(r'^blog/(?P<id>\d+)/$', blog_show, name='detailblog'),
+    # url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+    #     {'document_root': settings.STATICFILES_DIRS}),
+    url(r'^blog/tag/(?P<id>\d+)/$', blog_filter, name='filtrblog'),
+
 ]
